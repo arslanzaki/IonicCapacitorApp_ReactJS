@@ -1,7 +1,7 @@
 import { IonContent, IonHeader, IonIcon, IonItem, IonMenu, IonMenuToggle, IonPage, IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import { Redirect, Route } from 'react-router';
-import { homeOutline, newspaperOutline } from "ionicons/icons";
+import { homeOutline, newspaperOutline, logOutOutline } from "ionicons/icons";
 import List from './List';
 import Settings from './Settings';
 
@@ -33,6 +33,14 @@ const Menu: React.FC = () => {
                                 </IonMenuToggle>
                             )
                         })}
+
+                        <IonMenuToggle autoHide={false}>
+
+                            <IonItem routerLink="/" routerDirection='none'>
+                                <IonIcon slot='start' icon={logOutOutline} />
+                                Logout
+                            </IonItem>
+                        </IonMenuToggle>
                     </IonContent>
                 </IonMenu>
 
