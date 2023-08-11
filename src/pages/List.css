@@ -1,0 +1,10 @@
+
+ion-item:hover{
+    cursor: pointer;
+    --color: var(--ion-color-primary)
+}
+
+ion-item::part(detail-icon) {
+    color: red;
+    opacity:  1;
+}

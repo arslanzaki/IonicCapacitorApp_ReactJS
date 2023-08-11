@@ -26,7 +26,10 @@ import Menu from './pages/Menu';
 import List from './pages/List';
 import Settings from './pages/Settings';
 
-setupIonicReact();
+setupIonicReact({
+  mode: 'ios',
+  animated: "true"
+});
 
 const App: React.FC = () => (
   <IonApp>

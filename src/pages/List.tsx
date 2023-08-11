@@ -1,7 +1,7 @@
 import { IonAvatar, IonButton, IonButtons, IonCard, IonCardContent, IonChip, IonContent, IonDatetime, IonFab, IonFabButton, IonHeader, IonIcon, IonImg, IonItem, IonLabel, IonMenuButton, IonModal, IonPage, IonRefresher, IonRefresherContent, IonSearchbar, IonSegment, IonSegmentButton, IonSkeletonText, IonTitle, IonToolbar, useIonAlert, useIonToast, useIonViewWillEnter } from '@ionic/react';
 import React, { useEffect, useRef, useState } from 'react';
 import { trashBinOutline, addOutline } from "ionicons/icons"
-
+import "./List.css";
 
 const List: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true);
