@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <title>Ionic App</title>
-    
+
     <base href="/" />
-    
+
     <meta name="color-scheme" content="light" />
     <meta
       name="viewport"
@@ -13,11 +13,11 @@
     />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
-    
+
     <link rel="manifest" href="/manifest.json" />
-    
+
     <link rel="shortcut icon" type="image/png" href="/favicon.png" />
-    
+
     <!-- add to homescreen for ios -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Ionic App" />
@@ -26,5 +26,13 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"
+    ></script>
   </body>
 </html>
