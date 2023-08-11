@@ -1,13 +1,42 @@
-import { CreateAnimation, IonButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, useIonViewDidEnter } from '@ionic/react';
+import { CreateAnimation, IonButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, createGesture, useIonViewDidEnter } from '@ionic/react';
 import React, { useRef } from 'react';
+import type { GestureDetail, Gesture } from '@ionic/react';
 
 const Tab2: React.FC = () => {
 
     const animationRef = useRef<CreateAnimation>(null);
+    const elementRef = useRef<HTMLDivElement>(null)
 
-    useIonViewDidEnter(()=>{
+    useIonViewDidEnter(() => {
         animationRef.current?.animation.play();
+
+        const gesture: Gesture = createGesture({
+            el: elementRef.current!,
+            threshold: 0,
+            gestureName: "my-gesture",
+            onStart: (ev: any) => onStartHandler(ev),
+            onMove: (ev: any) => onMoveHandler(ev),
+            onEnd: (ev: any) => onMoveEnd(ev)
+        })
+        gesture.enable();
     })
+
+    const onStartHandler = (detail: GestureDetail) => {
+        elementRef.current!.style.transition = "none";
+    }
+    const onMoveHandler = (detail: GestureDetail) => {
+        const x = detail.currentX - detail.startX;
+        const y = detail.currentY - detail.startY;
+        elementRef.current!.style.transform = `translate(${x}px, ${y}px)`;
+    }
+    const onMoveEnd = (detail: GestureDetail) => {
+
+        elementRef.current!.style.transition = '500ms ease-out';
+        elementRef.current!.style.transform = 'translate(0px, 0px)';
+
+    }
+
+
 
     return (
         <IonPage>
@@ -29,6 +58,8 @@ const Tab2: React.FC = () => {
                         Join Us
                     </IonButton>
                 </CreateAnimation>
+
+                <div ref={elementRef} style={{ width: 50, height: 50, backgroundColor: "red" }}></div>
             </IonContent>
         </IonPage>
     );

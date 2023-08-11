@@ -1,6 +1,7 @@
 import { IonAvatar, IonButton, IonButtons, IonCard, IonCardContent, IonChip, IonContent, IonDatetime, IonFab, IonFabButton, IonHeader, IonIcon, IonImg, IonItem, IonLabel, IonMenuButton, IonModal, IonPage, IonRefresher, IonRefresherContent, IonSearchbar, IonSegment, IonSegmentButton, IonSkeletonText, IonTitle, IonToolbar, useIonAlert, useIonToast, useIonViewWillEnter } from '@ionic/react';
 import React, { useEffect, useRef, useState } from 'react';
-import { trashBinOutline,addOutline } from "ionicons/icons"
+import { trashBinOutline, addOutline } from "ionicons/icons"
+
 
 const List: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true);
@@ -17,7 +18,7 @@ const List: React.FC = () => {
 
     useEffect(() => {
         setPresentingElement(page.current);
-      }, []);
+    }, []);
 
     useIonViewWillEnter(async () => {
         const users = await getUsers();
